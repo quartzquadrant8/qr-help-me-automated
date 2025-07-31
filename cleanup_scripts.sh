@@ -4,7 +4,7 @@ set -e
 echo "--- Mass Removing Comments and Empty Lines from Scripts ---"
 
 # CRITICAL FIX: Changed array assignment to a space-separated list for broader shell compatibility
-for script in "app.py" "run.sh" "setup_ssh.sh" "git_push_workflow.sh"; do
+for script in "app.py" "run.sh" "ssh.sh" "setup_ssh.sh" "git_push_workflow.sh"; do
     if [ -f "$script" ]; then
         echo "Processing $script..."
         # Remove full-line comments (lines starting with # and optional whitespace)
