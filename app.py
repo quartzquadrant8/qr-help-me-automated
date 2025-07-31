@@ -1,0 +1,24 @@
+from flask import Flask, render_template, send_from_directory
+import os
+
+app = Flask(__name__)
+
+@app.route('/static/<path:filename>')
+def static_files(filename):
+    if filename.endswith('.js'):
+        mimetype = 'application/javascript'
+    elif filename.endswith('.css'):
+        mimetype = 'text/css'
+    elif filename.endswith('.png'):
+        mimetype = 'image/png'
+    else:
+        mimetype = None
+    return send_from_directory(os.path.join(app.root_path, 'static'), filename, mimetype=mimetype)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')

@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Flask-specific
+instance/
+.flaskenv
+
+# OS
+.DS_Store
+Thumbs.db
+*.bak # Added for sed backup files
